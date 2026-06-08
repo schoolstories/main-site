@@ -274,6 +274,14 @@
   .cta-form .btn{width:100%;justify-content:center;margin-top:8px;box-shadow:4px 4px 0 var(--yellow)}
   .cta-form .btn:hover{box-shadow:2px 2px 0 var(--yellow)}
   .form-note{font-size:12.5px;color:#9a927f;margin-top:14px;text-align:center;font-weight:500}
+  .form-error{display:none;background:#3a201a;border:2px solid #ff9a76;color:#ffd3c4;font-size:13.5px;font-weight:600;padding:11px 14px;border-radius:11px;margin-bottom:14px;line-height:1.4}
+  .form-error.show{display:block}
+  #submitBtn{position:relative}
+  #submitBtn .btn-spinner{display:none;width:16px;height:16px;border-radius:50%;border:2.5px solid rgba(26,24,21,0.25);border-top-color:var(--ink);animation:ss-spin .7s linear infinite}
+  #submitBtn.loading{pointer-events:none;opacity:0.78}
+  #submitBtn.loading .arrow{display:none}
+  #submitBtn.loading .btn-spinner{display:inline-block}
+  @keyframes ss-spin{to{transform:rotate(360deg)}}
   .form-success{display:none;text-align:center;padding:28px 10px}
   .form-success.show{display:block}
   .form-success .check{width:66px;height:66px;border-radius:50%;background:var(--yellow);border:2.5px solid var(--yellow);display:grid;place-items:center;margin:0 auto 20px}
@@ -398,7 +406,6 @@
     <nav class="nav-links">
       <a href="#why">Why it matters</a>
       <a href="#what">What we do</a>
-      <a href="#proof">Proof</a>
       <a href="#how">How it works</a>
     </nav>
     <div class="nav-cta">
@@ -417,7 +424,6 @@
   <nav class="mnav-links">
     <a href="#why">Why it matters</a>
     <a href="#what">What we do</a>
-    <a href="#proof">Proof</a>
     <a href="#how">How it works</a>
   </nav>
   <a href="#book" class="btn btn-ink">Book a discovery call</a>
@@ -434,7 +440,7 @@
       <p class="hero-lead reveal d2">A comprehensive social storytelling and community-management team that turns your channels into an inviting front door — without you having to lift a finger. Families look you up online long before they ever visit, adding to staff workload.</p>
       <div class="hero-cta reveal d3">
         <a href="#book" class="btn btn-ink">Book a discovery call <svg class="arrow" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
-        <a href="#proof" class="btn btn-white">See the proof</a>
+        <a href="#what" class="btn btn-white">See what we do</a>
       </div>
       <div class="hero-trust reveal d3">
         <span class="dot"></span> Done-for-you
@@ -445,12 +451,10 @@
 
     <div class="phone-stage reveal d2">
       <div class="proof-chip tl">
-        <div class="pc-num count" data-to="9" data-suffix="×">9×</div>
-        <div class="pc-lbl">following<br>in two weeks</div>
+        <div class="pc-lbl" style="font-weight:700">Fresh stories,<br>every week</div>
       </div>
       <div class="proof-chip br">
-        <div class="pc-lbl" style="font-weight:700">Every message<br>answered</div>
-        <span class="pc-spark">100% replied</span>
+        <div class="pc-lbl" style="font-weight:700">Every message<br>answered with care</div>
       </div>
       <div class="phone">
         <div class="phone-screen">
@@ -585,45 +589,6 @@
   </div>
 </section>
 
-<!-- ============ CASE STUDY ============ -->
-<section class="sec case" id="proof">
-  <div class="wrap">
-    <div class="case-card reveal">
-      <div class="case-left">
-        <span class="eyebrow">Proof · Concord West PS</span>
-        <h2>From a noticeboard nobody read into a real <span class="marker">communication channel.</span></h2>
-        <p class="case-quote">Grown by a couple of strategic posts — not by flooding the feed. Every comment and message moderated and answered, showing a school that listens and cares.</p>
-        <div class="case-stats">
-          <div class="cstat"><div class="big count" data-prefix="14 → " data-to="130">14→130</div><div class="lbl">Facebook following in two weeks</div></div>
-          <div class="cstat"><div class="big count" data-to="9" data-suffix="×">9×</div><div class="lbl">growth, driven by strategy</div></div>
-          <div class="cstat"><div class="big count" data-to="100" data-suffix="%">100%</div><div class="lbl">of messages answered</div></div>
-        </div>
-      </div>
-      <div class="case-right">
-        <div class="growth">
-          <div class="growth-title">Followers</div>
-          <div class="growth-now">130<span>in 14 days</span></div>
-          <div class="chart">
-            <span class="lbl-start">14 · start</span>
-            <span class="lbl-end">130 · day 14</span>
-            <svg viewBox="0 0 320 150" preserveAspectRatio="none">
-              <defs>
-                <linearGradient id="gfill" x1="0" y1="0" x2="0" y2="1">
-                  <stop offset="0" stop-color="rgba(255,237,113,0.4)"/>
-                  <stop offset="1" stop-color="rgba(255,237,113,0)"/>
-                </linearGradient>
-              </defs>
-              <path id="area" d="M0,138 C70,134 110,120 160,92 C210,64 250,30 320,8 L320,150 L0,150 Z" fill="url(#gfill)"/>
-              <path id="line" d="M0,138 C70,134 110,120 160,92 C210,64 250,30 320,8" fill="none" stroke="#ffed71" stroke-width="3.5" stroke-linecap="round"/>
-              <circle id="dot" cx="320" cy="8" r="6" fill="#fff" stroke="#ffed71" stroke-width="3"/>
-            </svg>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
 <!-- ============ WHAT WE MEASURE ============ -->
 <section class="sec" id="measure">
   <div class="wrap">
@@ -694,10 +659,11 @@
                 <option>Other</option>
               </select><span class="err">Please choose a role</span></div>
           </div>
-          <div class="field"><label for="school">School name</label><input id="school" name="school" type="text" placeholder="Concord West Public School" /><span class="err">Please enter your school</span></div>
+          <div class="field"><label for="school">School name</label><input id="school" name="school" type="text" placeholder="Your school's name" /><span class="err">Please enter your school</span></div>
           <div class="field"><label for="email">Email</label><input id="email" name="email" type="email" placeholder="you@school.nsw.edu.au" /><span class="err">Please enter a valid email</span></div>
           <div class="field"><label for="msg">Anything you'd like us to know? <span style="font-weight:400;color:#9a927f">(optional)</span></label><textarea id="msg" name="msg" placeholder="Our open day is in August and our page has gone quiet…"></textarea></div>
-          <button type="submit" class="btn btn-yellow">Request my call <svg class="arrow" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button>
+          <div class="form-error" id="formError" role="alert">Something went wrong sending your request. Please try again, or email us directly at engage@schoolstories.com.au.</div>
+          <button type="submit" class="btn btn-yellow" id="submitBtn"><span class="btn-label">Request my call</span><svg class="arrow" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg><span class="btn-spinner" aria-hidden="true"></span></button>
           <p class="form-note">No spam, ever. We'll only use your details to arrange the call.</p>
         </form>
         <div class="form-success" id="formSuccess">
@@ -723,7 +689,6 @@
         <h4>Explore</h4>
         <a href="#why">Why it matters</a>
         <a href="#what">What we do</a>
-        <a href="#proof">Proof</a>
         <a href="#how">How it works</a>
       </div>
       <div class="foot-col">
@@ -789,36 +754,20 @@
   }, {threshold:0.6});
   document.querySelectorAll('.count').forEach(el => countIO.observe(el));
 
-  // growth chart
-  const chartLine = document.getElementById('line');
-  if (chartLine){
-    const len = chartLine.getTotalLength();
-    chartLine.style.strokeDasharray = len;
-    chartLine.style.strokeDashoffset = len;
-    const dot = document.getElementById('dot');
-    const area = document.getElementById('area');
-    if (dot){ dot.style.opacity = 0; }
-    if (area){ area.style.opacity = 0; area.style.transition = 'opacity 1s ease 0.6s'; }
-    const cio = new IntersectionObserver((entries) => {
-      entries.forEach(e => {
-        if (e.isIntersecting){
-          chartLine.style.transition = 'stroke-dashoffset 1.6s cubic-bezier(.3,.7,.3,1)';
-          chartLine.style.strokeDashoffset = 0;
-          if (area) area.style.opacity = 1;
-          if (dot){ setTimeout(()=>dot.style.opacity=1,1400); }
-          cio.disconnect();
-        }
-      });
-    }, {threshold:0.4});
-    cio.observe(document.querySelector('#proof'));
-  }
-
-  // booking form validation
+  // booking form validation + submit
   const form = document.getElementById('bookForm');
   const success = document.getElementById('formSuccess');
+  const submitBtn = document.getElementById('submitBtn');
+  const formError = document.getElementById('formError');
   const emailRe = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-  form.addEventListener('submit', (e) => {
+
+  // Endpoint that securely relays the form to Resend (keeps the API key server-side).
+  // On Vercel this is the same-origin serverless function at /api/contact.
+  const CONTACT_ENDPOINT = '/api/contact';
+
+  form.addEventListener('submit', async (e) => {
     e.preventDefault();
+    formError.classList.remove('show');
     let ok = true;
     const setErr = (id, bad) => { const f = document.getElementById(id).closest('.field'); f.classList.toggle('error', bad); if (bad) ok = false; };
     setErr('name', !form.name.value.trim());
@@ -826,8 +775,31 @@
     setErr('school', !form.school.value.trim());
     setErr('email', !emailRe.test(form.email.value.trim()));
     if (!ok){ const firstErr = form.querySelector('.field.error'); if (firstErr) firstErr.querySelector('input,select').focus(); return; }
-    form.style.display = 'none';
-    success.classList.add('show');
+
+    const payload = {
+      name: form.name.value.trim(),
+      role: form.role.value,
+      school: form.school.value.trim(),
+      email: form.email.value.trim(),
+      msg: form.msg.value.trim()
+    };
+
+    submitBtn.classList.add('loading');
+    submitBtn.querySelector('.btn-label').textContent = 'Sending…';
+    try {
+      const res = await fetch(CONTACT_ENDPOINT, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(payload)
+      });
+      if (!res.ok) throw new Error('Request failed: ' + res.status);
+      form.style.display = 'none';
+      success.classList.add('show');
+    } catch (err) {
+      submitBtn.classList.remove('loading');
+      submitBtn.querySelector('.btn-label').textContent = 'Request my call';
+      formError.classList.add('show');
+    }
   });
   ['name','role','school','email'].forEach(id => {
     const el = document.getElementById(id);

@@ -1,0 +1,7 @@
+# dependencies / build
+node_modules
+.vercel
+
+# environment — never commit your real key
+.env
+.env*.local
