@@ -50,6 +50,21 @@ It is never committed to this repo and never sent to the browser.
    email. The form shows a graceful error (with the direct email address) if
    anything fails.
 
+## Routing & redirects (`vercel.json`)
+
+Two redirects are configured:
+
+- **`/contact-us`** → jumps straight to the contact form at the bottom of the
+  page (redirects to `/#book`). Share `schoolstories.com.au/contact-us` and it
+  lands the visitor right on the booking form.
+- **`www` → apex** — `www.schoolstories.com.au/*` permanently redirects to
+  `https://schoolstories.com.au/*` so there's one canonical domain.
+
+For the www redirect to fire, add **both** domains to the project in Vercel →
+Settings → Domains: add `schoolstories.com.au` (set as primary) and
+`www.schoolstories.com.au`. Vercel + the `vercel.json` rule then send all `www`
+traffic to the apex.
+
 ## Local testing (optional)
 
 ```bash

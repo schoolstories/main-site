@@ -37,11 +37,16 @@ export default async function handler(req, res) {
   const role = (data.role || '').trim();
   const school = (data.school || '').trim();
   const email = (data.email || '').trim();
+  const phone = (data.phone || '').trim();
+  const managedBy = Array.isArray(data.managedBy) ? data.managedBy : [];
+  const channels = Array.isArray(data.channels) ? data.channels : [];
   const msg = (data.msg || '').trim();
 
   if (!name || !school || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
     return res.status(400).json({ error: 'Missing or invalid fields' });
   }
+
+  const list = (arr) => arr.length ? arr.map(esc).join(', ') : '—';
 
   const html = `
     <div style="font-family:Arial,sans-serif;font-size:15px;color:#1a1815;line-height:1.6">
@@ -50,6 +55,9 @@ export default async function handler(req, res) {
       <p style="margin:0 0 6px"><strong>Role:</strong> ${esc(role) || '—'}</p>
       <p style="margin:0 0 6px"><strong>School:</strong> ${esc(school)}</p>
       <p style="margin:0 0 6px"><strong>Email:</strong> <a href="mailto:${esc(email)}">${esc(email)}</a></p>
+      <p style="margin:0 0 6px"><strong>Phone:</strong> ${esc(phone) || '—'}</p>
+      <p style="margin:0 0 6px"><strong>Currently managed by:</strong> ${list(managedBy)}</p>
+      <p style="margin:0 0 6px"><strong>Channels they have:</strong> ${list(channels)}</p>
       <p style="margin:14px 0 6px"><strong>Message:</strong></p>
       <p style="margin:0;white-space:pre-wrap">${esc(msg) || '—'}</p>
     </div>`;

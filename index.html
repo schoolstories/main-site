@@ -93,12 +93,12 @@
   .menu-btn{display:none;background:none;border:0;cursor:pointer;padding:8px;color:var(--ink)}
 
   /* ---------- Hero ---------- */
-  .hero{position:relative;background:var(--yellow);overflow:hidden;border-bottom:2.5px solid var(--ink)}
+  .hero{position:relative;background:var(--yellow);overflow:hidden;border-bottom:2.5px solid var(--ink);padding:96px 0 104px}
   .hero-deco{position:absolute;border-radius:50%;border:2.5px solid var(--ink);opacity:0.5}
-  .hero-grid{display:grid;grid-template-columns:1.08fr 0.92fr;gap:64px;align-items:center;padding:104px 0 112px;position:relative;z-index:2}
-  .hero h1{font-size:clamp(38px,5.4vw,64px);letter-spacing:-0.03em;line-height:1.14}
-  .hero h1 .marker{font-weight:400;letter-spacing:0;line-height:1}
-  .hero-lead{font-size:19px;color:var(--ink);opacity:0.82;margin-top:28px;max-width:30em;font-weight:500}
+  .hero-grid{display:grid;grid-template-columns:1.08fr 0.92fr;gap:64px;align-items:center;position:relative;z-index:2;padding-left:44px}
+  .hero h1{font-size:clamp(38px,5.4vw,64px);letter-spacing:-0.03em;line-height:1.14;padding-bottom:30px}
+  .hero h1 .marker{font-weight:400;letter-spacing:0;line-height:1;display:inline-block}
+  .hero-lead{font-size:19px;color:var(--ink);opacity:0.82;margin-top:22px;max-width:30em;font-weight:500}
   .hero-cta{display:flex;gap:14px;margin-top:34px;flex-wrap:wrap}
   .hero-trust{display:flex;align-items:center;gap:13px;margin-top:30px;color:var(--ink);font-size:14px;font-weight:600;flex-wrap:wrap}
   .hero-trust .dot{width:7px;height:7px;border-radius:50%;background:var(--ink)}
@@ -270,6 +270,20 @@
   .field.error input,.field.error select{border-color:#ff9a76}
   .field .err{display:none;color:#ffb59a;font-size:12.5px;margin-top:6px;font-weight:600}
   .field.error .err{display:block}
+  /* checkbox chip groups */
+  .group-label{display:block;font-size:13px;font-weight:700;color:#e3dccb;margin-bottom:9px}
+  .group-label .opt{font-weight:400;color:#9a927f}
+  .chip-group{display:flex;flex-wrap:wrap;gap:9px}
+  .chip{display:inline-flex;align-items:center;gap:8px;min-height:44px;padding:9px 15px;border-radius:999px;border:2px solid #3a352d;background:#221f19;color:#e3dccb;font-size:14px;font-weight:600;cursor:pointer;transition:border-color .15s, background .15s, color .15s;user-select:none}
+  .chip input{position:absolute;opacity:0;width:0;height:0;margin:0}
+  .chip span{display:inline-flex;align-items:center;gap:8px}
+  .chip span::before{content:"";width:18px;height:18px;flex:0 0 auto;border-radius:6px;border:2px solid #5a5347;background:transparent;transition:all .15s}
+  .chip:hover{border-color:#5a5347}
+  .chip:has(input:checked){background:var(--yellow);border-color:var(--yellow);color:var(--ink)}
+  .chip:has(input:checked) span::before{background:var(--ink);border-color:var(--ink);
+    background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%23ffed71' stroke-width='4' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M20 6 9 17l-5-5'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:center}
+  .chip input:focus-visible + span{outline:2px solid var(--yellow);outline-offset:3px;border-radius:4px}
+  .other-input{margin-top:9px}
   .form-row{display:grid;grid-template-columns:1fr 1fr;gap:13px}
   .cta-form .btn{width:100%;justify-content:center;margin-top:8px;box-shadow:4px 4px 0 var(--yellow)}
   .cta-form .btn:hover{box-shadow:2px 2px 0 var(--yellow)}
@@ -291,7 +305,7 @@
   /* Footer */
   footer{background:var(--ink);color:#c8c1b1;padding:60px 0 28px}
   .foot-grid{display:grid;grid-template-columns:1.6fr 1fr 1fr;gap:40px;padding-bottom:42px;border-bottom:2px solid #322d25}
-  footer .brand img{height:58px}
+  footer .brand img{height:58px;display:block}
   .foot-blurb{margin-top:18px;font-size:15px;color:#a89f8e;max-width:30em;font-weight:500}
   .foot-by{margin-top:14px;font-family:var(--marker);font-size:15px;color:var(--yellow)}
   .foot-col h4{font-family:var(--marker);font-size:16px;color:var(--yellow);margin-bottom:15px;font-weight:400}
@@ -313,7 +327,8 @@
   .mnav .btn{margin-top:28px;justify-content:center}
 
   @media (max-width:980px){
-    .hero-grid{grid-template-columns:1fr;gap:48px;padding:64px 0 80px}
+    .hero{padding:60px 0 72px}
+    .hero-grid{grid-template-columns:1fr;gap:44px;padding-left:0}
     .phone-stage{order:-1}
     .why-grid{grid-template-columns:1fr}
     .pillars-grid{grid-template-columns:repeat(2,1fr)}
@@ -338,7 +353,10 @@
   }
   @media (max-width:420px){
     .wrap{padding:0 18px}
+    .hero{padding:48px 0 58px}
     .hero h1{font-size:35px}
+    .hero-cta{flex-direction:column;align-items:stretch}
+    .hero-cta .btn{width:100%;justify-content:center}
     .scope-num{width:54px;height:54px;font-size:28px}
     .scope-row{grid-template-columns:54px 1fr;column-gap:18px}
     .scope-row .scope-list{grid-column:1 / -1}
@@ -468,7 +486,7 @@
             <div class="pf-follow">Follow</div>
           </div>
           <div class="pf-post">
-            <image-slot id="hero-post" placeholder="Drop a school photo" shape="rect"></image-slot>
+            <image-slot id="hero-post" src="school-photo.jpg" fit="cover" placeholder="Drop a school photo" shape="rect"></image-slot>
           </div>
           <div class="pf-body">
             <div class="pf-actions">
@@ -660,7 +678,35 @@
               </select><span class="err">Please choose a role</span></div>
           </div>
           <div class="field"><label for="school">School name</label><input id="school" name="school" type="text" placeholder="Your school's name" /><span class="err">Please enter your school</span></div>
-          <div class="field"><label for="email">Email</label><input id="email" name="email" type="email" placeholder="you@school.nsw.edu.au" /><span class="err">Please enter a valid email</span></div>
+          <div class="form-row">
+            <div class="field"><label for="email">Email</label><input id="email" name="email" type="email" placeholder="you@school.nsw.edu.au" /><span class="err">Please enter a valid email</span></div>
+            <div class="field"><label for="phone">Phone</label><input id="phone" name="phone" type="tel" inputmode="tel" placeholder="0400 000 000" /><span class="err">Please enter your phone</span></div>
+          </div>
+
+          <div class="field">
+            <span class="group-label">Who manages your social media now? <span class="opt">(select any)</span></span>
+            <div class="chip-group">
+              <label class="chip"><input type="checkbox" name="managedBy" value="Teaching staff" /><span>Teaching staff</span></label>
+              <label class="chip"><input type="checkbox" name="managedBy" value="Admin staff" /><span>Admin staff</span></label>
+              <label class="chip"><input type="checkbox" name="managedBy" value="Executive" /><span>Executive</span></label>
+              <label class="chip"><input type="checkbox" name="managedBy" value="External provider" /><span>External provider</span></label>
+              <label class="chip"><input type="checkbox" name="managedBy" value="Other" data-other="managedByOther" /><span>Other</span></label>
+            </div>
+            <input class="other-input" id="managedByOther" name="managedByOther" type="text" placeholder="Tell us who" hidden />
+          </div>
+
+          <div class="field">
+            <span class="group-label">Which channels do you have? <span class="opt">(select any)</span></span>
+            <div class="chip-group">
+              <label class="chip"><input type="checkbox" name="channels" value="Facebook" /><span>Facebook</span></label>
+              <label class="chip"><input type="checkbox" name="channels" value="Instagram" /><span>Instagram</span></label>
+              <label class="chip"><input type="checkbox" name="channels" value="Twitter / X" /><span>Twitter / X</span></label>
+              <label class="chip"><input type="checkbox" name="channels" value="Website" /><span>Website</span></label>
+              <label class="chip"><input type="checkbox" name="channels" value="Other" data-other="channelsOther" /><span>Other</span></label>
+            </div>
+            <input class="other-input" id="channelsOther" name="channelsOther" type="text" placeholder="Which other channels?" hidden />
+          </div>
+
           <div class="field"><label for="msg">Anything you'd like us to know? <span style="font-weight:400;color:#9a927f">(optional)</span></label><textarea id="msg" name="msg" placeholder="Our open day is in August and our page has gone quiet…"></textarea></div>
           <div class="form-error" id="formError" role="alert">Something went wrong sending your request. Please try again, or email us directly at engage@schoolstories.com.au.</div>
           <button type="submit" class="btn btn-yellow" id="submitBtn"><span class="btn-label">Request my call</span><svg class="arrow" width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg><span class="btn-spinner" aria-hidden="true"></span></button>
@@ -774,13 +820,23 @@
     setErr('role', !form.role.value);
     setErr('school', !form.school.value.trim());
     setErr('email', !emailRe.test(form.email.value.trim()));
+    setErr('phone', form.phone.value.trim().length < 6);
     if (!ok){ const firstErr = form.querySelector('.field.error'); if (firstErr) firstErr.querySelector('input,select').focus(); return; }
+
+    const checked = (n) => [...form.querySelectorAll('input[name="' + n + '"]:checked')].map(c => c.value);
+    const managedBy = checked('managedBy');
+    if (managedBy.includes('Other') && form.managedByOther.value.trim()) { managedBy[managedBy.indexOf('Other')] = 'Other: ' + form.managedByOther.value.trim(); }
+    const channels = checked('channels');
+    if (channels.includes('Other') && form.channelsOther.value.trim()) { channels[channels.indexOf('Other')] = 'Other: ' + form.channelsOther.value.trim(); }
 
     const payload = {
       name: form.name.value.trim(),
       role: form.role.value,
       school: form.school.value.trim(),
       email: form.email.value.trim(),
+      phone: form.phone.value.trim(),
+      managedBy: managedBy,
+      channels: channels,
       msg: form.msg.value.trim()
     };
 
@@ -801,10 +857,20 @@
       formError.classList.add('show');
     }
   });
-  ['name','role','school','email'].forEach(id => {
+  ['name','role','school','email','phone'].forEach(id => {
     const el = document.getElementById(id);
     el.addEventListener('input', () => el.closest('.field').classList.remove('error'));
     el.addEventListener('change', () => el.closest('.field').classList.remove('error'));
+  });
+
+  // reveal the matching free-text input when an "Other" chip is toggled
+  form.querySelectorAll('input[data-other]').forEach(box => {
+    box.addEventListener('change', () => {
+      const other = document.getElementById(box.dataset.other);
+      if (!other) return;
+      other.hidden = !box.checked;
+      if (box.checked) other.focus(); else other.value = '';
+    });
   });
 </script>
 </body>

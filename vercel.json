@@ -1,0 +1,18 @@
+{
+  "cleanUrls": true,
+  "redirects": [
+    {
+      "source": "/contact-us",
+      "destination": "/#book",
+      "permanent": false
+    },
+    {
+      "source": "/:path*",
+      "has": [
+        { "type": "host", "value": "www.schoolstories.com.au" }
+      ],
+      "destination": "https://schoolstories.com.au/:path*",
+      "permanent": true
+    }
+  ]
+}
